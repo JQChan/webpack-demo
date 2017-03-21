@@ -1,1 +1,1 @@
-webpack 2.0 demos
+webpack 2.0 demo
