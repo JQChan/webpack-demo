@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
-  devtool: 'source-map',
+  devtool: 'source-map', 
   module: {
     rules: [
       {
@@ -49,8 +50,14 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(), // 启用 HMR
     new HtmlWebpackPlugin({
       title: 'Multiple Output Management'
     })
-  ]
+  ],
+  devServer: {
+    hot: true, // 告诉 dev-server 我们在使用 HMR
+    contentBase: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
+  }
 }
