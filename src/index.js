@@ -2,7 +2,7 @@ import _ from 'lodash';
 import './style.css';
 import Icon from './icon.png';
 import Data from './data.xml';
-import printMe from './print.js'
+// import printMe from './print.js'
 
 function component () {
   var element = document.createElement('div');
@@ -18,7 +18,7 @@ function component () {
   element.appendChild(myIcon);
 
   btn.innerHTML = 'Click me and check the console!';
-  btn.onclick = printMe;
+  // btn.onclick = printMe('123');
   element.appendChild(btn);
 
   console.log(Data);
